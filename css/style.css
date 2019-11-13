@@ -1,3 +1,11 @@
+h1 {
+    font-family: Aladin
+}
+
+h2 {
+    font-family: 'Short STack';
+}
+
 h1,
 h2,
 h3,
@@ -7,13 +15,35 @@ h6 {
     text-align: center !important;
 }
 
+#profile-photo {
+    height: 200px;
+    width: auto;
+}
+
+#wordpress-icon {
+    height: 50px;
+    width: auto;
+}
+
 #followers img, #following img {
     border-radius: 50%;
     height: 100px;
     width: auto;
 }
 
+#following {
+    display: none;
+}
+
 #profile, #additional-information {
     max-height: 550px !important;
     overflow: auto !important;
+}
+
+.title {
+    font-size: 1.5em !important;
+}
+
+a:hover {
+    text-decoration: none !important;
 }

@@ -10,6 +10,7 @@
     </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Aladin|Short+Stack&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css" />
 </head>
 
@@ -22,57 +23,77 @@
     <div id="wrapper" class="container-fluid row">
         <div class="col-11 row mx-auto">
             <div id="profile" class="col-md-6 bg-light">
-                <img src="{{userData.avatar_url}}" alt="" class="rounded-circle d-block mx-auto" height="250">
-                <h2>
-                    {{userData.name}}
-                </h2>
+                <a href="{{userData.html_url}}">
+                    <img id="profile-photo" src="{{userData.avatar_url}}" alt="" class="rounded-circle d-block mx-auto"
+                        height="250">
+                    <h2 class="text-primary">
+                        {{userData.name}}
+                    </h2>
+                </a>
                 <h5 class="text-info">
                     Location: {{userData.location}}
+                </h5>
+                <h5>
+                    <a href="{{userData.blog}}" class="text-info">
+                        <img id="wordpress-icon" src="./assets/images/wordpress-1.png" class="d-block mx-auto"
+                            alt="WordPress Icon">
+                        Visit My Blog
+                    </a>
                 </h5>
                 <h3 class="jumbotron jumbotron-fluid font-italic text-secondary">
                     "{{userData.bio}}"
                 </h3>
             </div>
             <div id="additional-information" class="col-md-6">
-                <div class="col-12 btn btn-dark font-weight-bolder">
-                    Followers
-                    <span class="badge badge-pill badge-primary">
-                        {{userData.followers}}
-                    </span>
+                <div class="btn-group btn-group-lg bg-dark d-flex justify-content-center">
+                    <button class="btn btn-dark font-weight-bolder" data-ng-click="showFollower()">
+                        Followers
+                        <span class="badge badge-pill badge-primary">
+                            {{userData.followers}}
+                        </span>
+                    </button>
+                    <button class="btn btn-dark font-weight-bolder" data-ng-click="showFollowing()">
+                        Following
+                        <span class="badge badge-pill badge-primary">
+                            {{userData.following}}
+                        </span>
+                    </button>
                 </div>
                 <div id="followers" class="col-12 bg-light">
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-action" data-ng-repeat="follower in followers">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="{{follower.avatar_url}}" alt="" class="rounded-circle">
+                                    <a href="{{follower.html_url}}">
+                                        <img src="{{follower.avatar_url}}" alt="" class="rounded-circle">
+                                    </a>
                                 </div>
                                 <div class="col-8">
-                                    <h3>
-                                        {{follower.login}}
-                                    </h3>
+                                    <a href="{{follower.html_url}}">
+                                        <h3>
+                                            {{follower.login}}
+                                        </h3>
+                                    </a>
                                 </div>
                             </div>
                         </li>
                     </ul>
-                </div>
-                <div class="col-12 btn btn-dark font-weight-bolder">
-                    Following
-                    <span class="badge badge-pill badge-primary">
-                        {{userData.following}}
-                    </span>
                 </div>
                 <div id="following" class="col-12 bg-light">
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-action" data-ng-repeat="follow in following">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="{{follow.avatar_url}}" alt="" class="rounded-circle">
+                                    <a href="{{follow.html_url}}">
+                                        <img src="{{follow.avatar_url}}" alt="" class="rounded-circle">
+                                    </a>
                                 </div>
                                 <div class="col-8">
-                                    <h3>
-                                        {{follow.login}}
-                                    </h3>
+                                    <a href="{{follow.html_url}}">
+                                        <h3>
+                                            {{follow.login}}
+                                        </h3>
+                                    </a>
                                 </div>
                             </div>
                         </li>
