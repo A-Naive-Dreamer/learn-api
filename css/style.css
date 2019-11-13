@@ -1,0 +1,19 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-align: center !important;
+}
+
+#followers img, #following img {
+    border-radius: 50%;
+    height: 100px;
+    width: auto;
+}
+
+#profile, #additional-information {
+    max-height: 550px !important;
+    overflow: auto !important;
+}
