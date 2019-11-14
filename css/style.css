@@ -25,13 +25,13 @@ h6 {
     width: auto;
 }
 
-#followers img, #following img {
+#followers img, #following img, #follower-result img, #following-result img {
     border-radius: 50%;
     height: 100px;
     width: auto;
 }
 
-#following, #repos {
+#following, #repos, #search-column {
     display: none;
 }
 
@@ -41,7 +41,12 @@ h6 {
 }
 
 .title {
-    font-size: 1.5em !important;
+    box-sizing: border-box;
+    color: white;
+    font-weight: bolder;
+    font-size: 1em !important;
+    padding: 5px;
+    text-align: center;
 }
 
 a:hover {

@@ -62,7 +62,11 @@
                         Repos
                         <span class="badge badge-pill badge-primary">
                             {{userData.public_repos}}
-                        </span></button>
+                        </span>
+                    </button>
+                    <button class="btn btn-dark font-weight-bolder" data-ng-click="showSearch()">
+                        Search
+                    </button>
                 </div>
                 <div id="followers" class="col-12 bg-light">
                     <ul class="list-group">
@@ -115,7 +119,7 @@
                                         </h5>
                                     </a>
                                 </summary>
-                                <table class="table table-sm table-dark table-hover table-striped">
+                                <table class="table table-dark table-hover table-striped">
                                     <tbody>
                                         <tr>
                                             <td>
@@ -177,6 +181,22 @@
                                 </table>
                             </details>
                         </li>
+                    </ul>
+                </div>
+                <div id="search-column" class="col-12 bg-light">
+                    <div class="form-group">
+                        <input type="text" class="form-control" data-ng-model="searchKeywords" data-ng-change="search()"
+                            placeholder="Search Keywords" />
+                    </div>
+                    <div class="title bg-dark">
+                        Followers
+                    </div>
+                    <ul id="follower-result" class="list-group">
+                    </ul>
+                    <div class="title bg-dark">
+                        Following
+                    </div>
+                    <ul id="following-result" class="list-group">
                     </ul>
                 </div>
             </div>
