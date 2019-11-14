@@ -21,7 +21,7 @@
         </h1>
     </div>
     <div id="wrapper" class="container-fluid row">
-        <div class="col-11 row mx-auto">
+        <div class="col-12 row">
             <div id="profile" class="col-md-6 bg-light">
                 <a href="{{userData.html_url}}">
                     <img id="profile-photo" src="{{userData.avatar_url}}" alt="" class="rounded-circle d-block mx-auto"
@@ -35,7 +35,7 @@
                 </h5>
                 <h5>
                     <a href="{{userData.blog}}" class="text-info">
-                        <img id="wordpress-icon" src="./assets/images/wordpress-1.png" class="d-block mx-auto"
+                        <img id="wordpress-icon" src="./assets/images/wordpress.png" class="d-block mx-auto"
                             alt="WordPress Icon">
                         Visit My Blog
                     </a>
@@ -58,17 +58,22 @@
                             {{userData.following}}
                         </span>
                     </button>
+                    <button class="btn btn-dark font-weight-bolder" data-ng-click="showRepos()">
+                        Repos
+                        <span class="badge badge-pill badge-primary">
+                            {{userData.public_repos}}
+                        </span></button>
                 </div>
                 <div id="followers" class="col-12 bg-light">
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-action" data-ng-repeat="follower in followers">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-12 col-sm-4">
                                     <a href="{{follower.html_url}}">
                                         <img src="{{follower.avatar_url}}" alt="" class="rounded-circle">
                                     </a>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-12 col-sm-8">
                                     <a href="{{follower.html_url}}">
                                         <h3>
                                             {{follower.login}}
@@ -83,12 +88,12 @@
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-action" data-ng-repeat="follow in following">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-12 col-sm-4">
                                     <a href="{{follow.html_url}}">
                                         <img src="{{follow.avatar_url}}" alt="" class="rounded-circle">
                                     </a>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-12 col-sm-8">
                                     <a href="{{follow.html_url}}">
                                         <h3>
                                             {{follow.login}}
@@ -96,6 +101,81 @@
                                     </a>
                                 </div>
                             </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="repos" class="col-12 bg-light">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-action" data-ng-repeat="repo in repos">
+                            <details>
+                                <summary>
+                                    <a href="{{repo.html_url}}">
+                                        <h5 class="text-success">
+                                            {{repo.name}}
+                                        </h5>
+                                    </a>
+                                </summary>
+                                <table class="table table-sm table-dark table-hover table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Description:
+                                            </td>
+                                            <td>
+                                                {{repo.description}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Forks:
+                                            </td>
+                                            <td>
+                                                {{repo.forks_count}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Issues:
+                                            </td>
+                                            <td>
+                                                {{repo.open_issues_count}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Language:
+                                            </td>
+                                            <td>
+                                                {{repo.language}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                License:
+                                            </td>
+                                            <td>
+                                                {{repo.license.name}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Size:
+                                            </td>
+                                            <td>
+                                                {{repo.size}} Byte
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Watchers:
+                                            </td>
+                                            <td>
+                                                {{repo.watchers_count}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </details>
                         </li>
                     </ul>
                 </div>

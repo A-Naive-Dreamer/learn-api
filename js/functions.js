@@ -11,8 +11,6 @@ gitHubAPI.controller('gitHubAPIController', function ($scope, $http, $sce) {
                         $scope.followers = response2.data
                         $scope.followerData = []
 
-                        // console.log($scope.followers)
-
                         // for (let x = 0; x < $scope.followers.length; ++x) {
                         //     let url = $scope.followers[x].html_url,
                         //         trustedURL = $sce.trustAsResourceUrl(url)
@@ -21,11 +19,12 @@ gitHubAPI.controller('gitHubAPIController', function ($scope, $http, $sce) {
                         //         method: 'JSONP',
                         //         url: trustedURL,
                         //         headers: {
-                        //             'Cross-Origin-Allow-Control': '*'
+                        //             'Cross-Origin-Allow-Control': 'https://api.github.com'
                         //         }
                         //     })
                         //         .then(function (response3) {
-                        //             console.log($scope.followers[x].html_url)
+                        //             $scope.followerData.push(response3.data)
+                        //             console.log($scope.followerData)
                         //         })
                         // }
                         // $scope.followers.forEach(function (follower) {
@@ -44,7 +43,6 @@ gitHubAPI.controller('gitHubAPIController', function ($scope, $http, $sce) {
                 $http.get($scope.userData.repos_url)
                     .then(function (response4) {
                         $scope.repos = response4.data
-                        console.log($scope.repos)
                     })
             })
     }
@@ -52,10 +50,18 @@ gitHubAPI.controller('gitHubAPIController', function ($scope, $http, $sce) {
     $scope.showFollowing = function () {
         $('#followers').css('display', 'none')
         $('#following').css('display', 'block')
+        $('#repos').css('display', 'none')
     }
 
     $scope.showFollower = function () {
         $('#followers').css('display', 'block')
         $('#following').css('display', 'none')
+        $('#repos').css('display', 'none')
+    }
+
+    $scope.showRepos = function () {
+        $('#followers').css('display', 'none')
+        $('#following').css('display', 'none')
+        $('#repos').css('display', 'block')
     }
 })
