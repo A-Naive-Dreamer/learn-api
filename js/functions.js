@@ -103,7 +103,7 @@ gitHubAPI.controller('gitHubAPIController', function ($scope, $http) {
                 $scope.searchKeywords !== '' &&
                 following.login
                     .toLowerCase()
-                    .includes($scope.searchKeywords)
+                    .includes($scope.searchKeywords.toLowerCase())
             ) {
                 let followingResult = document.getElementById('following-result'),
                     li = document.createElement('li'),
