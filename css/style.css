@@ -35,7 +35,7 @@ h6 {
     display: none;
 }
 
-#profile, #additional-information {
+#additional-information {
     max-height: 550px !important;
     overflow: auto !important;
 }
